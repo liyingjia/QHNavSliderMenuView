@@ -23,6 +23,7 @@
         self.pagingEnabled = NO;
         curSelectRow       = 0;
         menuType = type;
+        sliderDelegate = delegate;
         [self initSliderTopNavView:type];
     }
     return self;
