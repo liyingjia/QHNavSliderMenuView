@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC4762FC1B7C3A6100087117 /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4762FB1B7C3A6100087117 /* ExampleViewController.m */; };
 		EC5D8FCE1B7B1CA7008E2AE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5D8FCD1B7B1CA7008E2AE5 /* main.m */; };
 		EC5D8FD11B7B1CA7008E2AE5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5D8FD01B7B1CA7008E2AE5 /* AppDelegate.m */; };
 		EC5D8FD41B7B1CA7008E2AE5 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5D8FD31B7B1CA7008E2AE5 /* FirstViewController.m */; };
@@ -16,7 +17,6 @@
 		EC5D8FE81B7B1CA7008E2AE5 /* QHNavSliderMenuViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5D8FE71B7B1CA7008E2AE5 /* QHNavSliderMenuViewTests.m */; };
 		EC5D8FFB1B7B1D97008E2AE5 /* UIView+QHUIViewCtg.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5D8FFA1B7B1D97008E2AE5 /* UIView+QHUIViewCtg.m */; };
 		EC5D8FFE1B7B1DD5008E2AE5 /* QHNavSliderMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5D8FFD1B7B1DD5008E2AE5 /* QHNavSliderMenu.m */; };
-		EC5D90071B7B3061008E2AE5 /* ExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5D90061B7B3061008E2AE5 /* ExampleViewController.m */; };
 		EC5D900D1B7B375D008E2AE5 /* ws_leimu_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC5D90091B7B375D008E2AE5 /* ws_leimu_gray@2x.png */; };
 		EC5D900E1B7B375D008E2AE5 /* ws_leimu_gray@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC5D900A1B7B375D008E2AE5 /* ws_leimu_gray@3x.png */; };
 		EC5D900F1B7B375D008E2AE5 /* ws_leimu_pink@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC5D900B1B7B375D008E2AE5 /* ws_leimu_pink@2x.png */; };
@@ -35,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EC4762FA1B7C3A6100087117 /* ExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleViewController.h; sourceTree = "<group>"; };
+		EC4762FB1B7C3A6100087117 /* ExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleViewController.m; sourceTree = "<group>"; };
 		EC5D8FC81B7B1CA7008E2AE5 /* QHNavSliderMenuView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QHNavSliderMenuView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC5D8FCC1B7B1CA7008E2AE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC5D8FCD1B7B1CA7008E2AE5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -53,8 +55,6 @@
 		EC5D8FFA1B7B1D97008E2AE5 /* UIView+QHUIViewCtg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+QHUIViewCtg.m"; sourceTree = "<group>"; };
 		EC5D8FFC1B7B1DD5008E2AE5 /* QHNavSliderMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHNavSliderMenu.h; sourceTree = "<group>"; };
 		EC5D8FFD1B7B1DD5008E2AE5 /* QHNavSliderMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHNavSliderMenu.m; sourceTree = "<group>"; };
-		EC5D90051B7B3061008E2AE5 /* ExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExampleViewController.h; path = ../../../temporary/QHNavSliderMenuView/QHNavSliderMenuView/ExampleViewController.h; sourceTree = "<group>"; };
-		EC5D90061B7B3061008E2AE5 /* ExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExampleViewController.m; path = ../../../temporary/QHNavSliderMenuView/QHNavSliderMenuView/ExampleViewController.m; sourceTree = "<group>"; };
 		EC5D90091B7B375D008E2AE5 /* ws_leimu_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ws_leimu_gray@2x.png"; sourceTree = "<group>"; };
 		EC5D900A1B7B375D008E2AE5 /* ws_leimu_gray@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ws_leimu_gray@3x.png"; sourceTree = "<group>"; };
 		EC5D900B1B7B375D008E2AE5 /* ws_leimu_pink@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ws_leimu_pink@2x.png"; sourceTree = "<group>"; };
@@ -105,8 +105,8 @@
 				EC5D8FF11B7B1D1B008E2AE5 /* QHNavSliderMenuView */,
 				EC5D8FD21B7B1CA7008E2AE5 /* FirstViewController.h */,
 				EC5D8FD31B7B1CA7008E2AE5 /* FirstViewController.m */,
-				EC5D90051B7B3061008E2AE5 /* ExampleViewController.h */,
-				EC5D90061B7B3061008E2AE5 /* ExampleViewController.m */,
+				EC4762FA1B7C3A6100087117 /* ExampleViewController.h */,
+				EC4762FB1B7C3A6100087117 /* ExampleViewController.m */,
 				EC5D90111B7B406D008E2AE5 /* ContentViewController.h */,
 				EC5D90121B7B406D008E2AE5 /* ContentViewController.m */,
 				EC5D8FD51B7B1CA7008E2AE5 /* Main.storyboard */,
@@ -286,7 +286,7 @@
 				EC5D90131B7B406D008E2AE5 /* ContentViewController.m in Sources */,
 				EC5D8FD11B7B1CA7008E2AE5 /* AppDelegate.m in Sources */,
 				EC5D8FFE1B7B1DD5008E2AE5 /* QHNavSliderMenu.m in Sources */,
-				EC5D90071B7B3061008E2AE5 /* ExampleViewController.m in Sources */,
+				EC4762FC1B7C3A6100087117 /* ExampleViewController.m in Sources */,
 				EC5D8FCE1B7B1CA7008E2AE5 /* main.m in Sources */,
 				EC5D8FFB1B7B1D97008E2AE5 /* UIView+QHUIViewCtg.m in Sources */,
 			);
