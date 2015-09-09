@@ -12,7 +12,7 @@
 
 #define QHRGB(r, g, b)    [UIColor colorWithRed:(r)/255.f green:(g)/255.f blue:(b)/255.f alpha:1.f]
 #define QHRGBA(r, g, b,a) [UIColor colorWithRed:(r)/255.f green:(g)/255.f blue:(b)/255.f alpha:a]
-
+#define lineViewColor      QHRGB(232,232,232)
 #define defaultFont(s) [UIFont fontWithName:@"STHeitiSC-Light" size:s]
 
 #define QHKEY_WINDOW      [[UIApplication sharedApplication] keyWindow]

@@ -15,15 +15,14 @@
     NSInteger curSelectRow;
     UIView *bottomTabLine;
     QHNavSliderMenuType menuType;
+    UIScrollView *contentScrollView;
 }
 - (instancetype)initWithFrame:(CGRect)frame andStyleModel:(QHNavSliderMenuStyleModel *)aStyleModel andDelegate:(id<QHNavSliderMenuDelegate>)delegate  showType:(QHNavSliderMenuType)type;{
     if (self=[super initWithFrame:frame]) {
-       styleModel = aStyleModel;
-        self.delegate      = self;
-        self.pagingEnabled = NO;
+        styleModel = aStyleModel;
         curSelectRow       = 0;
         menuType = type;
-        sliderDelegate = delegate;
+        sliderDelegate =delegate;
         [self initSliderTopNavView:type];
     }
     return self;
@@ -44,8 +43,8 @@
         [sliderDelegate navSliderMenuDidSelectAtRow:row];
     }
     
-    UIButton *unSelectBtn =(UIButton *)[self viewWithTag:curSelectRow+sliderBtnTagStartPoint];
-    UIButton *selectBtn=(UIButton *)[self viewWithTag:row+sliderBtnTagStartPoint];
+    UIButton *unSelectBtn =(UIButton *)[contentScrollView viewWithTag:curSelectRow+sliderBtnTagStartPoint];
+    UIButton *selectBtn=(UIButton *)[contentScrollView viewWithTag:row+sliderBtnTagStartPoint];
     if (menuType==QHNavSliderMenuTypeTitleOnly) {
         [UIView animateWithDuration:ABS(row-curSelectRow)*0.1 delay:0.f options:UIViewAnimationOptionCurveEaseInOut animations:^{
             bottomTabLine.left=selectBtn.left;
@@ -57,7 +56,7 @@
         unSelectBtn.selected=NO;
         selectBtn.selected=YES;
     }
-
+    
     
     curSelectRow=row;
     [self adjustToScrollView:curSelectRow];
@@ -65,27 +64,27 @@
 
 //点击后适当滚动以适应
 - (void)adjustToScrollView :(NSInteger)row {
-
-    UIButton *selectBtn=(UIButton *)[self viewWithTag:row+sliderBtnTagStartPoint];
-    CGPoint btnPosition = [self convertPoint:selectBtn.origin toView:[UIApplication sharedApplication].keyWindow];
     
-    if (btnPosition.x+styleModel.menuHorizontalSpacing+styleModel.menuWidth+styleModel.menuWidth/2.f>=self.width) {
-        CGPoint offset = self.contentOffset;
-        offset.x+=btnPosition.x+styleModel.menuHorizontalSpacing+styleModel.menuWidth+styleModel.menuWidth/2.f-self.width;
+    UIButton *selectBtn=(UIButton *)[contentScrollView viewWithTag:row+sliderBtnTagStartPoint];
+    CGPoint btnPosition = [contentScrollView convertPoint:selectBtn.origin toView:[UIApplication sharedApplication].keyWindow];
+    
+    if (btnPosition.x+styleModel.menuHorizontalSpacing+styleModel.menuWidth+styleModel.menuWidth/2.f>=contentScrollView.width) {
+        CGPoint offset = contentScrollView.contentOffset;
+        offset.x+=btnPosition.x+styleModel.menuHorizontalSpacing+styleModel.menuWidth+styleModel.menuWidth/2.f-contentScrollView.width;
         //让最后一个标签露出一半,单必须确保不会超出边界
-        offset.x= offset.x>=self.contentSize.width-self.width?self.contentSize.width-self.width:offset.x;
+        offset.x= offset.x>=contentScrollView.contentSize.width-contentScrollView.width?contentScrollView.contentSize.width-contentScrollView.width:offset.x;
         
-        [self setContentOffset:offset animated:YES];
+        [contentScrollView setContentOffset:offset animated:YES];
         
     }
     
     if (btnPosition.x-styleModel.menuHorizontalSpacing-styleModel.menuWidth/2.f<0) {
-        CGPoint offset = self.contentOffset;
+        CGPoint offset = contentScrollView.contentOffset;
         offset.x-=ABS(btnPosition.x-styleModel.menuHorizontalSpacing-styleModel.menuWidth/2.f);
         offset.x = offset.x<0?0:offset.x;
-        [self setContentOffset:offset animated:YES];
+        [contentScrollView setContentOffset:offset animated:YES];
     }
-
+    
 }
 
 - (void)sliderBtnSelectEvent:(UIButton *)sender {
@@ -101,14 +100,17 @@
 }
 
 - (void)initSliderTopNavView:(QHNavSliderMenuType)type {
-
+    
+    contentScrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+    [self addSubview:contentScrollView];
+    
     NSAssert(styleModel.menuTitles, @"顶部滑动栏标题为空?");
     if (type==QHNavSliderMenuTypeTitleAndImage) {
         if(!styleModel.menuImagesNormal) {
-           NSAssert(0, @"QHNavSliderMenuTypeTitleAndImage却未传入未选中的显示图片数组?");
+            NSAssert(0, @"QHNavSliderMenuTypeTitleAndImage却未传入未选中的显示图片数组?");
         }
         if (!styleModel.menuImagesSelect) {
-           NSAssert(0, @"QHNavSliderMenuTypeTitleAndImage却未传入选中时的显示图片数组?");
+            NSAssert(0, @"QHNavSliderMenuTypeTitleAndImage却未传入选中时的显示图片数组?");
         }
         
         if(styleModel.menuTitles.count<styleModel.menuImagesNormal.count||styleModel.menuTitles.count<styleModel.menuImagesSelect.count) {
@@ -126,28 +128,21 @@
         styleModel.titleLableFont  = defaultFont(12);
     }
     if (styleModel.menuWidth <=0) {
-        styleModel.menuWidth = QHScreenWidth /4.f;
+        styleModel.menuWidth =QHScreenWidth /4.f;
     }
     if (styleModel.menuHorizontalSpacing<=0 ) {
         styleModel.menuHorizontalSpacing = 0.f;
     }
     
-    self.showsVerticalScrollIndicator   = NO;
-    self.showsHorizontalScrollIndicator = NO;
-    self.bounces = YES;
-    self.contentSize = CGSizeMake((styleModel.menuWidth+styleModel.menuHorizontalSpacing)*styleModel.menuTitles.count+styleModel.menuHorizontalSpacing, 44);
-    
-    if (menuType==QHNavSliderMenuTypeTitleOnly) {
-
-        bottomTabLine=[[UIView alloc] initWithFrame:CGRectMake(styleModel.menuHorizontalSpacing, 0, styleModel.menuWidth, 2)];
-        bottomTabLine.bottom = self.height-2.f;
-        bottomTabLine.backgroundColor = styleModel.sliderMenuTextColorForSelect;
-        [self addSubview:bottomTabLine];
-    }
+    contentScrollView.showsVerticalScrollIndicator   = NO;
+    contentScrollView.showsHorizontalScrollIndicator = NO;
+    contentScrollView.bounces = YES;
+    contentScrollView.delegate = self;
+    contentScrollView.contentSize = CGSizeMake((styleModel.menuWidth+styleModel.menuHorizontalSpacing)*styleModel.menuTitles.count+styleModel.menuHorizontalSpacing, 0);
     
     for(int i=0;i<styleModel.menuTitles.count;i++) {
-        UIButton *btn =[[UIButton alloc] initWithFrame:CGRectMake((styleModel.menuHorizontalSpacing+styleModel.menuWidth)*i, 0, styleModel.menuWidth, self.height)];
-        btn.centerY = self.height/2.f;
+        UIButton *btn =[[UIButton alloc] initWithFrame:CGRectMake((styleModel.menuHorizontalSpacing+styleModel.menuWidth)*i, 0, styleModel.menuWidth, contentScrollView.height)];
+        btn.centerY = contentScrollView.height/2.f;
         [btn addTarget:self action:@selector(sliderBtnSelectEvent:) forControlEvents:UIControlEventTouchUpInside];
         btn.adjustsImageWhenHighlighted=NO;
         btn.selected=i==0?YES:NO;
@@ -158,8 +153,13 @@
         [btn setTitleColor:styleModel.sliderMenuTextColorForSelect forState:UIControlStateSelected];
         [btn setTitleColor:styleModel.sliderMenuTextColorForNormal forState:UIControlStateNormal];
         btn.titleLabel.font=styleModel.titleLableFont;
-        [self addSubview:btn];
-    
+        [contentScrollView addSubview:btn];
+        
+        if(styleModel.sizeToFitScreenWidth) {
+            float leftGap = styleModel.menuWidth+70.f;
+            btn.centerX = contentScrollView.width/2.f-((int)(styleModel.menuTitles.count/2)-i)*leftGap;
+        }
+        
         if (type==QHNavSliderMenuTypeTitleAndImage) {
             [btn setImage:styleModel.menuImagesNormal[i] forState:UIControlStateNormal];
             [btn setImage:styleModel.menuImagesSelect[i] forState:UIControlStateSelected];
@@ -175,9 +175,26 @@
             [btn setImageEdgeInsets:imgInsets];
             [btn setTitleEdgeInsets:titleInsets];
         }
-
-
+        
+        
     }
+    
+    if (menuType==QHNavSliderMenuTypeTitleOnly) {
+        
+        bottomTabLine=[[UIView alloc] initWithFrame:CGRectMake(styleModel.menuHorizontalSpacing, 0, styleModel.menuWidth, 2)];
+        bottomTabLine.bottom = contentScrollView.height;
+        bottomTabLine.backgroundColor = styleModel.sliderMenuTextColorForSelect;
+        [contentScrollView addSubview:bottomTabLine];
+        
+        if (styleModel.sizeToFitScreenWidth) {
+            bottomTabLine.left = ((UIButton *)[contentScrollView viewWithTag:0+sliderBtnTagStartPoint]).left;
+        }
+    }
+    
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, self.height, self.width, 0.5f)];
+    lineView.backgroundColor = lineViewColor;
+    self.clipsToBounds = NO;
+    [self addSubview:lineView];
     
 }
 

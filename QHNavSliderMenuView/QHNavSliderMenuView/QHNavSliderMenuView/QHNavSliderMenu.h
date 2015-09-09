@@ -17,9 +17,9 @@ typedef NS_ENUM(NSInteger, QHNavSliderMenuType) {
 
 @class QHNavSliderMenuStyleModel;
 
-@interface QHNavSliderMenu : UIScrollView<UIScrollViewDelegate>
+@interface QHNavSliderMenu : UIView<UIScrollViewDelegate>
 {
-    @protected
+@protected
     QHNavSliderMenuStyleModel *styleModel;
     
     __weak id<QHNavSliderMenuDelegate>sliderDelegate;
@@ -74,6 +74,9 @@ typedef NS_ENUM(NSInteger, QHNavSliderMenuType) {
 /*按钮的宽度   默认是屏幕宽度/4 */
 @property (nonatomic       ) float   menuWidth;
 
+/*适应屏幕，居中显示，只有当一个屏幕能全部显示的下的时候才有效*/
+@property (nonatomic)BOOL sizeToFitScreenWidth;
+
 @end
 
 
@@ -90,5 +93,4 @@ typedef NS_ENUM(NSInteger, QHNavSliderMenuType) {
 - (void)navScrollViewDidScroll:(float)offsetX;
 
 @end
-
 
