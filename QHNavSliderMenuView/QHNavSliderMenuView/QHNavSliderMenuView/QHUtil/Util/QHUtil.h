@@ -12,10 +12,9 @@
  *  @brief  一些常用的公共方法
  */
 
-#import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
-#import "UIView+QHUIViewCtg.h"
-#import "QHDefine.h"
+#import "QHHead.h"
+
+#import "QHUtilAss.h"
 
 typedef enum{
     UIPanDirectionNone  = 0,
@@ -182,7 +181,11 @@ typedef enum{
 ///!!!!尽量从[QHStaticValueContent currentTopRootViewController] 如果是cell 则用 self.currentTopRootViewController  而少用[QHUtil currentVisibleController]
 + (UIViewController *)currentVisibleController ;
 
+//检查用户是否允许推送
++ (BOOL)pushNotificationsEnabled;
 
+//注册通知
++ (void)resignNotify;
 
 //将服务器返回的时间转化为2015-10-10这样子的简单事件格式字符串
 + (NSString *)defaultSimpleDateFromString:(NSString *)dateString andFormatStr:(NSString *)formatStr;

@@ -8,6 +8,7 @@
 
 #import "QHNavSliderMenu.h"
 
+
 @interface ExampleViewController : UIViewController
 
 @property (nonatomic)QHNavSliderMenuType menuType;

@@ -23,7 +23,7 @@
 - (void)initView {
     self.view.backgroundColor = QHRGB(arc4random() % 255, arc4random() % 255, arc4random() % 255);
     
-    UILabel *lable      = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, QHScreenWidth  , 200)];
+    UILabel *lable      = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, screenWidth  , 200)];
     lable.centerY       = self.view.height/2.f-50;
     lable.textAlignment = NSTextAlignmentCenter;
     lable.font          = defaultFont(100);

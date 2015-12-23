@@ -7,7 +7,7 @@
 //
 
 #import "QHNavSliderMenu.h"
-#import "QHDefine.h"
+
 #define sliderBtnTagStartPoint 10102
 
 @implementation QHNavSliderMenu
@@ -137,7 +137,7 @@
         styleModel.titleLableFont  = defaultFont(12);
     }
     if (styleModel.menuWidth <=0) {
-        styleModel.menuWidth =QHScreenWidth /4.f;
+        styleModel.menuWidth = screenWidth /4.f;
     }
     if (styleModel.menuHorizontalSpacing<=0 ) {
         styleModel.menuHorizontalSpacing = 0.f;

@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 imqiuhang. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "QHHead.h"
 
 @interface NSString (QHNSStringCtg)
 

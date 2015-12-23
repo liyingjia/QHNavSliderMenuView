@@ -63,15 +63,15 @@
 //    model.menuHorizontalSpacing        = 0.f;
     //>>>>>>>>>>>
     
-    navSliderMenu = [[QHNavSliderMenu alloc] initWithFrame:(CGRect){0,64,QHScreenWidth,50} andStyleModel:model andDelegate:self showType:self.menuType];
+    navSliderMenu = [[QHNavSliderMenu alloc] initWithFrame:(CGRect){0,64,screenWidth,50} andStyleModel:model andDelegate:self showType:self.menuType];
     navSliderMenu.backgroundColor = [UIColor groupTableViewBackgroundColor];
     [self.view addSubview:navSliderMenu];
     
     ///如果只需要一个菜单 下面这些都可以不要  以下是个添加page视图的例子
     
     //example 用于滑动的滚动视图
-    contentScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, navSliderMenu.bottom, QHScreenWidth, QHScreenHeight-navSliderMenu.bottom)];
-    contentScrollView.contentSize = (CGSize){QHScreenWidth*menuCount,contentScrollView.contentSize.height};
+    contentScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, navSliderMenu.bottom, screenWidth, screenHeight-navSliderMenu.bottom)];
+    contentScrollView.contentSize = (CGSize){screenWidth*menuCount,contentScrollView.contentSize.height};
     contentScrollView.pagingEnabled = YES;
     contentScrollView.delegate      = self;
     contentScrollView.scrollsToTop  = NO;
@@ -84,17 +84,17 @@
 #pragma mark -QHNavSliderMenuDelegate
 - (void)navSliderMenuDidSelectAtRow:(NSInteger)row {
     //让scrollview滚到相应的位置
-    [contentScrollView setContentOffset:CGPointMake(row*QHScreenWidth, contentScrollView.contentOffset.y)  animated:NO];
+    [contentScrollView setContentOffset:CGPointMake(row*screenWidth, contentScrollView.contentOffset.y)  animated:NO];
 }
 
 #pragma mark scrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
     //用scrollView的滑动大小与屏幕宽度取整数 得到滑动的页数
-    [navSliderMenu selectAtRow:(int)((scrollView.contentOffset.x+QHScreenWidth/2.f)/QHScreenWidth) andDelegate:NO];
+    [navSliderMenu selectAtRow:(int)((scrollView.contentOffset.x+screenWidth/2.f)/screenWidth) andDelegate:NO];
     //根据页数添加相应的视图
-    [self addListVCWithIndex:(int)(scrollView.contentOffset.x/QHScreenWidth)];
-    [self addListVCWithIndex:(int)(scrollView.contentOffset.x/QHScreenWidth)+1];
+    [self addListVCWithIndex:(int)(scrollView.contentOffset.x/screenWidth)];
+    [self addListVCWithIndex:(int)(scrollView.contentOffset.x/screenWidth)+1];
     
 }
 
@@ -113,7 +113,7 @@
         ContentViewController * contentViewController = [ContentViewController new];
         contentViewController.index = (int)index;
         [self addChildViewController:contentViewController];
-        contentViewController.view.left = index*QHScreenWidth;
+        contentViewController.view.left = index*screenWidth;
         contentViewController.view.top  = 0;
         [contentScrollView addSubview:contentViewController.view];
         [listVCQueue setObject:contentViewController forKey:@(index)];

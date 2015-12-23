@@ -172,7 +172,7 @@
         return YES;
     }
     @catch (NSException *e) {
-        QHLog(@"保存图片失败");
+        MSLog(@"保存图片失败");
     }
     return NO;
 }
@@ -202,7 +202,7 @@
     if ([cString hasPrefix:@"#"])
         cString = [cString substringFromIndex:1];
     if ([cString length] != 6) {
-        QHLog(@"输入的16进制有误，不足6位！");
+        MSLog(@"输入的16进制有误，不足6位！");
         return [UIColor clearColor];
     }
     
@@ -316,7 +316,41 @@
     return topController;
 }
 
++ (BOOL)pushNotificationsEnabled {
+    if ([[UIApplication sharedApplication] respondsToSelector:@selector(currentUserNotificationSettings)]) {
+        UIUserNotificationType types = [[[UIApplication sharedApplication] currentUserNotificationSettings] types];
+        return (types & UIUserNotificationTypeAlert);
+    }
+    else {
+        UIRemoteNotificationType types = [[UIApplication sharedApplication] enabledRemoteNotificationTypes];
+        return (types & UIRemoteNotificationTypeAlert);
+    }
+}
 
+
++ (void)resignNotify {
+    
+    //>>>>>>>>>>>>>>>notify
+    
+    if (IOS_VERSION>=8.0) {
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings
+                                                settingsForTypes:
+                                                UIUserNotificationTypeAlert   //弹出框
+                                                | UIUserNotificationTypeBadge //状态栏
+                                                | UIUserNotificationTypeSound //声音
+                                                
+                                                categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+        
+    }else {
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+         UIRemoteNotificationTypeBadge |
+         UIRemoteNotificationTypeAlert |
+         UIRemoteNotificationTypeSound];
+    }
+
+}
 
 
 + (NSString *)defaultSimpleDateFromString:(NSString *)dateString andFormatStr:(NSString *)formatStr {

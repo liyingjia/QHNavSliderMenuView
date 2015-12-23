@@ -7,7 +7,6 @@
 //
 
 #import "UILabel+QHLabelCtg.h"
-#import "QHDefine.h"
 
 @implementation UILabel (QHLabelCtg)
 
@@ -27,7 +26,7 @@
     }else {
         NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"￥%i",realPrice]];
         
-        [attributedString addAttribute:NSFontAttributeName value:defaultFont(12) range:NSMakeRange(0, 1)];
+        [attributedString addAttribute:NSFontAttributeName value:systemFont(12) range:NSMakeRange(0, 1)];
         [attributedString addAttribute:NSFontAttributeName value:self.font range:NSMakeRange(1,attributedString.string.length-1)];
         self.attributedText = attributedString;
     }

@@ -1,28 +1,10 @@
 //
 //  UIView+QHUIViewCtg.m
+//  QHCategorys
 //
-//  Created by imqiuhang on 15/7/23.
+//  Created by imqiuhang on 15/2/10.
 //  Copyright (c) 2015年 imqiuhang. All rights reserved.
 //
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
-
-
 
 #import "UIView+QHUIViewCtg.h"
 @implementation UIView (QHUIViewCtg)
@@ -123,5 +105,68 @@
     frame.size   = size;
     self.frame   = frame;
 }
+
+- (void)removeAllSubviews {
+    for (UIView *subview in self.subviews) {
+        if ([subview isKindOfClass:[UIView class]]) {
+            [subview removeFromSuperview];
+        }
+        
+    }
+}
+
+- (void)removeAllGestureRecognizers {
+    for (UIGestureRecognizer *gestureRecognizer in self.gestureRecognizers) {
+        [self removeGestureRecognizer:gestureRecognizer];
+    }
+}
+
+- (UIImage *)screenshotWithQuality:(CGFloat)imageQuality {
+    UIGraphicsBeginImageContext(self.bounds.size);
+    if([self respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]){
+        [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:NO];
+    }else{
+        [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    }
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    NSData *imageData = UIImageJPEGRepresentation(image, imageQuality>0?imageQuality:0.75f);
+    image = [UIImage imageWithData:imageData];
+    return image;
+}
+
+
+- (void)setAsStarView:(float)starCount {
+    [self removeAllSubviews];
+    
+    while (starCount>5) {
+        starCount/=2.f;
+    }
+    self.backgroundColor= [ UIColor clearColor];
+    
+    starCount = starCount<0?0:starCount;
+
+    for (int i=0;i<5;i++) {
+        UIImageView *starImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 16, 16)];
+        starImage.left=i*(starImage.width+3);
+        starImage.centerY=self.height/2.f;
+        if(i<(int)starCount) {
+            starImage.image = [UIImage imageNamed:@"icon_star_1"];
+        }else {
+            float half = starCount - i*1.0f;
+            if (half>=0.5) {
+                starImage.image = [UIImage imageNamed:@"icon_star_half"];
+            }else {
+                starImage.image = [UIImage imageNamed:@"icon_star_0"];
+            }
+        }
+        [self addSubview:starImage];
+    }
+    
+    
+}
+
+
+
 
 @end

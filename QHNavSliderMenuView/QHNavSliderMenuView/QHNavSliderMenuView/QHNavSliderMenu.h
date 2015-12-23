@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 imqiuhang. All rights reserved.
 //
 
-#import "UIView+QHUIViewCtg.h"
-#import "QHDefine.h"
+#import "QHHead.h"
+
 typedef NS_ENUM(NSInteger, QHNavSliderMenuType) {
     QHNavSliderMenuTypeTitleOnly = 0,
     QHNavSliderMenuTypeTitleAndImage

@@ -15,17 +15,21 @@
 		EC5D8FD91B7B1CA7008E2AE5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC5D8FD81B7B1CA7008E2AE5 /* Images.xcassets */; };
 		EC5D8FDC1B7B1CA7008E2AE5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC5D8FDA1B7B1CA7008E2AE5 /* LaunchScreen.xib */; };
 		EC5D8FE81B7B1CA7008E2AE5 /* QHNavSliderMenuViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5D8FE71B7B1CA7008E2AE5 /* QHNavSliderMenuViewTests.m */; };
-		EC5D8FFB1B7B1D97008E2AE5 /* UIView+QHUIViewCtg.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5D8FFA1B7B1D97008E2AE5 /* UIView+QHUIViewCtg.m */; };
 		EC5D8FFE1B7B1DD5008E2AE5 /* QHNavSliderMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5D8FFD1B7B1DD5008E2AE5 /* QHNavSliderMenu.m */; };
 		EC5D900D1B7B375D008E2AE5 /* ws_leimu_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC5D90091B7B375D008E2AE5 /* ws_leimu_gray@2x.png */; };
 		EC5D900E1B7B375D008E2AE5 /* ws_leimu_gray@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC5D900A1B7B375D008E2AE5 /* ws_leimu_gray@3x.png */; };
 		EC5D900F1B7B375D008E2AE5 /* ws_leimu_pink@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC5D900B1B7B375D008E2AE5 /* ws_leimu_pink@2x.png */; };
 		EC5D90101B7B375D008E2AE5 /* ws_leimu_pink@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC5D900C1B7B375D008E2AE5 /* ws_leimu_pink@3x.png */; };
 		EC5D90131B7B406D008E2AE5 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5D90121B7B406D008E2AE5 /* ContentViewController.m */; };
-		ECF3EBD11C2A7A090061D640 /* QHUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EBD01C2A7A090061D640 /* QHUtil.m */; };
-		ECF3EBD81C2A7A780061D640 /* NSString+QHNSStringCtg.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EBD31C2A7A780061D640 /* NSString+QHNSStringCtg.m */; };
-		ECF3EBD91C2A7A780061D640 /* UIButton+QHButtonCtg.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EBD51C2A7A780061D640 /* UIButton+QHButtonCtg.m */; };
-		ECF3EBDA1C2A7A780061D640 /* UILabel+QHLabelCtg.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EBD71C2A7A780061D640 /* UILabel+QHLabelCtg.m */; };
+		ECF3EC631C2A81DF0061D640 /* AlertViewWithBlockOrSEL.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EC4E1C2A81DF0061D640 /* AlertViewWithBlockOrSEL.m */; };
+		ECF3EC651C2A81DF0061D640 /* NSObject+DataSecurity.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EC521C2A81DF0061D640 /* NSObject+DataSecurity.m */; };
+		ECF3EC661C2A81DF0061D640 /* NSString+QHNSStringCtg.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EC541C2A81DF0061D640 /* NSString+QHNSStringCtg.m */; };
+		ECF3EC671C2A81DF0061D640 /* NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EC551C2A81DF0061D640 /* NullSafe.m */; };
+		ECF3EC681C2A81DF0061D640 /* UIButton+QHButtonCtg.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EC571C2A81DF0061D640 /* UIButton+QHButtonCtg.m */; };
+		ECF3EC691C2A81DF0061D640 /* UILabel+QHLabelCtg.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EC591C2A81DF0061D640 /* UILabel+QHLabelCtg.m */; };
+		ECF3EC6A1C2A81DF0061D640 /* UIView+QHUIViewCtg.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EC5B1C2A81DF0061D640 /* UIView+QHUIViewCtg.m */; };
+		ECF3EC6B1C2A81DF0061D640 /* QHUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EC601C2A81DF0061D640 /* QHUtil.m */; };
+		ECF3EC6C1C2A81DF0061D640 /* QHUtilAss.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EC621C2A81DF0061D640 /* QHUtilAss.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,9 +58,6 @@
 		EC5D8FE11B7B1CA7008E2AE5 /* QHNavSliderMenuViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QHNavSliderMenuViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC5D8FE61B7B1CA7008E2AE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC5D8FE71B7B1CA7008E2AE5 /* QHNavSliderMenuViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QHNavSliderMenuViewTests.m; sourceTree = "<group>"; };
-		EC5D8FF81B7B1D97008E2AE5 /* QHDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHDefine.h; sourceTree = "<group>"; };
-		EC5D8FF91B7B1D97008E2AE5 /* UIView+QHUIViewCtg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+QHUIViewCtg.h"; sourceTree = "<group>"; };
-		EC5D8FFA1B7B1D97008E2AE5 /* UIView+QHUIViewCtg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+QHUIViewCtg.m"; sourceTree = "<group>"; };
 		EC5D8FFC1B7B1DD5008E2AE5 /* QHNavSliderMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHNavSliderMenu.h; sourceTree = "<group>"; };
 		EC5D8FFD1B7B1DD5008E2AE5 /* QHNavSliderMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHNavSliderMenu.m; sourceTree = "<group>"; };
 		EC5D90091B7B375D008E2AE5 /* ws_leimu_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ws_leimu_gray@2x.png"; sourceTree = "<group>"; };
@@ -65,14 +66,25 @@
 		EC5D900C1B7B375D008E2AE5 /* ws_leimu_pink@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ws_leimu_pink@3x.png"; sourceTree = "<group>"; };
 		EC5D90111B7B406D008E2AE5 /* ContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
 		EC5D90121B7B406D008E2AE5 /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
-		ECF3EBCF1C2A7A090061D640 /* QHUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHUtil.h; sourceTree = "<group>"; };
-		ECF3EBD01C2A7A090061D640 /* QHUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHUtil.m; sourceTree = "<group>"; };
-		ECF3EBD21C2A7A780061D640 /* NSString+QHNSStringCtg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+QHNSStringCtg.h"; sourceTree = "<group>"; };
-		ECF3EBD31C2A7A780061D640 /* NSString+QHNSStringCtg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+QHNSStringCtg.m"; sourceTree = "<group>"; };
-		ECF3EBD41C2A7A780061D640 /* UIButton+QHButtonCtg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+QHButtonCtg.h"; sourceTree = "<group>"; };
-		ECF3EBD51C2A7A780061D640 /* UIButton+QHButtonCtg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+QHButtonCtg.m"; sourceTree = "<group>"; };
-		ECF3EBD61C2A7A780061D640 /* UILabel+QHLabelCtg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+QHLabelCtg.h"; sourceTree = "<group>"; };
-		ECF3EBD71C2A7A780061D640 /* UILabel+QHLabelCtg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+QHLabelCtg.m"; sourceTree = "<group>"; };
+		ECF3EC4D1C2A81DF0061D640 /* AlertViewWithBlockOrSEL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertViewWithBlockOrSEL.h; sourceTree = "<group>"; };
+		ECF3EC4E1C2A81DF0061D640 /* AlertViewWithBlockOrSEL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertViewWithBlockOrSEL.m; sourceTree = "<group>"; };
+		ECF3EC511C2A81DF0061D640 /* NSObject+DataSecurity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DataSecurity.h"; sourceTree = "<group>"; };
+		ECF3EC521C2A81DF0061D640 /* NSObject+DataSecurity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DataSecurity.m"; sourceTree = "<group>"; };
+		ECF3EC531C2A81DF0061D640 /* NSString+QHNSStringCtg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+QHNSStringCtg.h"; sourceTree = "<group>"; };
+		ECF3EC541C2A81DF0061D640 /* NSString+QHNSStringCtg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+QHNSStringCtg.m"; sourceTree = "<group>"; };
+		ECF3EC551C2A81DF0061D640 /* NullSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSafe.m; sourceTree = "<group>"; };
+		ECF3EC561C2A81DF0061D640 /* UIButton+QHButtonCtg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+QHButtonCtg.h"; sourceTree = "<group>"; };
+		ECF3EC571C2A81DF0061D640 /* UIButton+QHButtonCtg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+QHButtonCtg.m"; sourceTree = "<group>"; };
+		ECF3EC581C2A81DF0061D640 /* UILabel+QHLabelCtg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+QHLabelCtg.h"; sourceTree = "<group>"; };
+		ECF3EC591C2A81DF0061D640 /* UILabel+QHLabelCtg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+QHLabelCtg.m"; sourceTree = "<group>"; };
+		ECF3EC5A1C2A81DF0061D640 /* UIView+QHUIViewCtg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+QHUIViewCtg.h"; sourceTree = "<group>"; };
+		ECF3EC5B1C2A81DF0061D640 /* UIView+QHUIViewCtg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+QHUIViewCtg.m"; sourceTree = "<group>"; };
+		ECF3EC5C1C2A81DF0061D640 /* macrodefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = macrodefine.h; sourceTree = "<group>"; };
+		ECF3EC5D1C2A81DF0061D640 /* QHHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHHead.h; sourceTree = "<group>"; };
+		ECF3EC5F1C2A81DF0061D640 /* QHUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHUtil.h; sourceTree = "<group>"; };
+		ECF3EC601C2A81DF0061D640 /* QHUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHUtil.m; sourceTree = "<group>"; };
+		ECF3EC611C2A81DF0061D640 /* QHUtilAss.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHUtilAss.h; sourceTree = "<group>"; };
+		ECF3EC621C2A81DF0061D640 /* QHUtilAss.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHUtilAss.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,27 +175,9 @@
 			children = (
 				EC5D8FFC1B7B1DD5008E2AE5 /* QHNavSliderMenu.h */,
 				EC5D8FFD1B7B1DD5008E2AE5 /* QHNavSliderMenu.m */,
-				EC5D8FF71B7B1D97008E2AE5 /* QHSupports */,
+				ECF3EC4B1C2A81DF0061D640 /* QHUtil */,
 			);
 			path = QHNavSliderMenuView;
-			sourceTree = "<group>";
-		};
-		EC5D8FF71B7B1D97008E2AE5 /* QHSupports */ = {
-			isa = PBXGroup;
-			children = (
-				EC5D8FF81B7B1D97008E2AE5 /* QHDefine.h */,
-				ECF3EBCF1C2A7A090061D640 /* QHUtil.h */,
-				ECF3EBD01C2A7A090061D640 /* QHUtil.m */,
-				ECF3EBD21C2A7A780061D640 /* NSString+QHNSStringCtg.h */,
-				ECF3EBD31C2A7A780061D640 /* NSString+QHNSStringCtg.m */,
-				ECF3EBD41C2A7A780061D640 /* UIButton+QHButtonCtg.h */,
-				ECF3EBD51C2A7A780061D640 /* UIButton+QHButtonCtg.m */,
-				ECF3EBD61C2A7A780061D640 /* UILabel+QHLabelCtg.h */,
-				ECF3EBD71C2A7A780061D640 /* UILabel+QHLabelCtg.m */,
-				EC5D8FF91B7B1D97008E2AE5 /* UIView+QHUIViewCtg.h */,
-				EC5D8FFA1B7B1D97008E2AE5 /* UIView+QHUIViewCtg.m */,
-			);
-			path = QHSupports;
 			sourceTree = "<group>";
 		};
 		EC5D90081B7B375D008E2AE5 /* resource */ = {
@@ -196,6 +190,48 @@
 			);
 			name = resource;
 			path = QHNavSliderMenuView/resource;
+			sourceTree = "<group>";
+		};
+		ECF3EC4B1C2A81DF0061D640 /* QHUtil */ = {
+			isa = PBXGroup;
+			children = (
+				ECF3EC5D1C2A81DF0061D640 /* QHHead.h */,
+				ECF3EC5C1C2A81DF0061D640 /* macrodefine.h */,
+				ECF3EC4C1C2A81DF0061D640 /* Categorys */,
+				ECF3EC5E1C2A81DF0061D640 /* Util */,
+			);
+			path = QHUtil;
+			sourceTree = "<group>";
+		};
+		ECF3EC4C1C2A81DF0061D640 /* Categorys */ = {
+			isa = PBXGroup;
+			children = (
+				ECF3EC4D1C2A81DF0061D640 /* AlertViewWithBlockOrSEL.h */,
+				ECF3EC4E1C2A81DF0061D640 /* AlertViewWithBlockOrSEL.m */,
+				ECF3EC511C2A81DF0061D640 /* NSObject+DataSecurity.h */,
+				ECF3EC521C2A81DF0061D640 /* NSObject+DataSecurity.m */,
+				ECF3EC531C2A81DF0061D640 /* NSString+QHNSStringCtg.h */,
+				ECF3EC541C2A81DF0061D640 /* NSString+QHNSStringCtg.m */,
+				ECF3EC551C2A81DF0061D640 /* NullSafe.m */,
+				ECF3EC561C2A81DF0061D640 /* UIButton+QHButtonCtg.h */,
+				ECF3EC571C2A81DF0061D640 /* UIButton+QHButtonCtg.m */,
+				ECF3EC581C2A81DF0061D640 /* UILabel+QHLabelCtg.h */,
+				ECF3EC591C2A81DF0061D640 /* UILabel+QHLabelCtg.m */,
+				ECF3EC5A1C2A81DF0061D640 /* UIView+QHUIViewCtg.h */,
+				ECF3EC5B1C2A81DF0061D640 /* UIView+QHUIViewCtg.m */,
+			);
+			path = Categorys;
+			sourceTree = "<group>";
+		};
+		ECF3EC5E1C2A81DF0061D640 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				ECF3EC5F1C2A81DF0061D640 /* QHUtil.h */,
+				ECF3EC601C2A81DF0061D640 /* QHUtil.m */,
+				ECF3EC611C2A81DF0061D640 /* QHUtilAss.h */,
+				ECF3EC621C2A81DF0061D640 /* QHUtilAss.m */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,7 +278,7 @@
 		EC5D8FC01B7B1CA7008E2AE5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = imqiuhang;
 				TargetAttributes = {
 					EC5D8FC71B7B1CA7008E2AE5 = {
@@ -302,17 +338,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECF3EBDA1C2A7A780061D640 /* UILabel+QHLabelCtg.m in Sources */,
+				ECF3EC691C2A81DF0061D640 /* UILabel+QHLabelCtg.m in Sources */,
+				ECF3EC671C2A81DF0061D640 /* NullSafe.m in Sources */,
 				EC5D8FD41B7B1CA7008E2AE5 /* FirstViewController.m in Sources */,
-				ECF3EBD81C2A7A780061D640 /* NSString+QHNSStringCtg.m in Sources */,
 				EC5D90131B7B406D008E2AE5 /* ContentViewController.m in Sources */,
-				ECF3EBD11C2A7A090061D640 /* QHUtil.m in Sources */,
+				ECF3EC6C1C2A81DF0061D640 /* QHUtilAss.m in Sources */,
 				EC5D8FD11B7B1CA7008E2AE5 /* AppDelegate.m in Sources */,
-				ECF3EBD91C2A7A780061D640 /* UIButton+QHButtonCtg.m in Sources */,
+				ECF3EC6B1C2A81DF0061D640 /* QHUtil.m in Sources */,
 				EC5D8FFE1B7B1DD5008E2AE5 /* QHNavSliderMenu.m in Sources */,
+				ECF3EC661C2A81DF0061D640 /* NSString+QHNSStringCtg.m in Sources */,
+				ECF3EC651C2A81DF0061D640 /* NSObject+DataSecurity.m in Sources */,
+				ECF3EC6A1C2A81DF0061D640 /* UIView+QHUIViewCtg.m in Sources */,
+				ECF3EC631C2A81DF0061D640 /* AlertViewWithBlockOrSEL.m in Sources */,
+				ECF3EC681C2A81DF0061D640 /* UIButton+QHButtonCtg.m in Sources */,
 				EC4762FC1B7C3A6100087117 /* ExampleViewController.m in Sources */,
 				EC5D8FCE1B7B1CA7008E2AE5 /* main.m in Sources */,
-				EC5D8FFB1B7B1D97008E2AE5 /* UIView+QHUIViewCtg.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +415,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -439,7 +480,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = QHNavSliderMenuView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "imqiuhang.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -449,7 +492,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = QHNavSliderMenuView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "imqiuhang.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -468,6 +513,7 @@
 				);
 				INFOPLIST_FILE = QHNavSliderMenuViewTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "imqiuhang.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QHNavSliderMenuView.app/QHNavSliderMenuView";
 			};
@@ -483,6 +529,7 @@
 				);
 				INFOPLIST_FILE = QHNavSliderMenuViewTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "imqiuhang.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QHNavSliderMenuView.app/QHNavSliderMenuView";
 			};
