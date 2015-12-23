@@ -7,7 +7,7 @@
 //
 
 #import "QHNavSliderMenu.h"
-
+#import "QHDefine.h"
 #define sliderBtnTagStartPoint 10102
 
 @implementation QHNavSliderMenu
@@ -17,12 +17,13 @@
     QHNavSliderMenuType menuType;
     UIScrollView *contentScrollView;
 }
+
 - (instancetype)initWithFrame:(CGRect)frame andStyleModel:(QHNavSliderMenuStyleModel *)aStyleModel andDelegate:(id<QHNavSliderMenuDelegate>)delegate  showType:(QHNavSliderMenuType)type;{
     if (self=[super initWithFrame:frame]) {
-        styleModel = aStyleModel;
-        curSelectRow       = 0;
-        menuType = type;
-        sliderDelegate =delegate;
+        styleModel     = aStyleModel;
+        curSelectRow   = -1;
+        menuType       = type;
+        sliderDelegate = delegate;
         [self initSliderTopNavView:type];
     }
     return self;
@@ -43,11 +44,17 @@
         [sliderDelegate navSliderMenuDidSelectAtRow:row];
     }
     
+    
+    
     UIButton *unSelectBtn =(UIButton *)[contentScrollView viewWithTag:curSelectRow+sliderBtnTagStartPoint];
     UIButton *selectBtn=(UIButton *)[contentScrollView viewWithTag:row+sliderBtnTagStartPoint];
     if (menuType==QHNavSliderMenuTypeTitleOnly) {
         [UIView animateWithDuration:ABS(row-curSelectRow)*0.1 delay:0.f options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            bottomTabLine.left=selectBtn.left;
+            if (styleModel.autoSuitLineViewWithdForBtnTitle) {
+                float width = [QHUtil countWidthOfString:styleModel.menuTitles[row] WithHeight:100 Font:styleModel.titleLableFont];
+                bottomTabLine.width = width;
+            }
+            bottomTabLine.centerX=selectBtn.centerX;
         } completion:^(BOOL finished) {
             unSelectBtn.selected=NO;
             selectBtn.selected=YES;
@@ -59,31 +66,33 @@
     
     
     curSelectRow=row;
+    _currentSelectIndex = curSelectRow;
     [self adjustToScrollView:curSelectRow];
 }
 
 //点击后适当滚动以适应
 - (void)adjustToScrollView :(NSInteger)row {
     
+    if (styleModel.donotScrollTapViewWhileScroll) {
+        return;
+    }
+    
     UIButton *selectBtn=(UIButton *)[contentScrollView viewWithTag:row+sliderBtnTagStartPoint];
-    CGPoint btnPosition = [contentScrollView convertPoint:selectBtn.origin toView:[UIApplication sharedApplication].keyWindow];
     
-    if (btnPosition.x+styleModel.menuHorizontalSpacing+styleModel.menuWidth+styleModel.menuWidth/2.f>=contentScrollView.width) {
-        CGPoint offset = contentScrollView.contentOffset;
-        offset.x+=btnPosition.x+styleModel.menuHorizontalSpacing+styleModel.menuWidth+styleModel.menuWidth/2.f-contentScrollView.width;
-        //让最后一个标签露出一半,单必须确保不会超出边界
-        offset.x= offset.x>=contentScrollView.contentSize.width-contentScrollView.width?contentScrollView.contentSize.width-contentScrollView.width:offset.x;
+    if(styleModel.sizeToFitScreenWidth) {
         
-        [contentScrollView setContentOffset:offset animated:YES];
+    }else {
         
+        
+        float offsetx = selectBtn.left - contentScrollView.width/2.f+ styleModel.menuWidth/2.f;
+        
+        offsetx=offsetx<0?0:offsetx;
+        offsetx = offsetx+contentScrollView.width>(contentScrollView.contentSize.width)?contentScrollView.contentSize.width-contentScrollView.width:offsetx;
+        
+        [contentScrollView setContentOffset:CGPointMake(offsetx, contentScrollView.contentOffset.y) animated:YES];
     }
     
-    if (btnPosition.x-styleModel.menuHorizontalSpacing-styleModel.menuWidth/2.f<0) {
-        CGPoint offset = contentScrollView.contentOffset;
-        offset.x-=ABS(btnPosition.x-styleModel.menuHorizontalSpacing-styleModel.menuWidth/2.f);
-        offset.x = offset.x<0?0:offset.x;
-        [contentScrollView setContentOffset:offset animated:YES];
-    }
+    
     
 }
 
@@ -122,7 +131,7 @@
         styleModel.sliderMenuTextColorForNormal = QHRGB(140, 140, 140);;
     }
     if (!styleModel.sliderMenuTextColorForSelect) {
-        styleModel.sliderMenuTextColorForSelect = QHRGB(226, 12, 12);
+        styleModel.sliderMenuTextColorForSelect = YMSBrandColor;
     }
     if (!styleModel.titleLableFont ) {
         styleModel.titleLableFont  = defaultFont(12);
@@ -136,9 +145,14 @@
     
     contentScrollView.showsVerticalScrollIndicator   = NO;
     contentScrollView.showsHorizontalScrollIndicator = NO;
+    contentScrollView.scrollsToTop = NO;
     contentScrollView.bounces = YES;
     contentScrollView.delegate = self;
     contentScrollView.contentSize = CGSizeMake((styleModel.menuWidth+styleModel.menuHorizontalSpacing)*styleModel.menuTitles.count+styleModel.menuHorizontalSpacing, 0);
+    
+    if (styleModel.sizeToFitScreenWidth||styleModel.sizeInMiddle) {
+        contentScrollView.scrollEnabled = NO;
+    }
     
     for(int i=0;i<styleModel.menuTitles.count;i++) {
         UIButton *btn =[[UIButton alloc] initWithFrame:CGRectMake((styleModel.menuHorizontalSpacing+styleModel.menuWidth)*i, 0, styleModel.menuWidth, contentScrollView.height)];
@@ -157,7 +171,12 @@
         
         if(styleModel.sizeToFitScreenWidth) {
             float leftGap = styleModel.menuWidth+70.f;
-            btn.centerX = contentScrollView.width/2.f-((int)(styleModel.menuTitles.count/2)-i)*leftGap;
+            btn.centerX = contentScrollView.width /2.f-((int)(styleModel.menuTitles.count/2)-i)*leftGap;
+        }
+        
+        if (styleModel.sizeInMiddle) {
+            
+            btn.centerX = contentScrollView.width/2.f + (float)(i-(styleModel.menuTitles.count - 1.f)/2.f)*(styleModel.menuWidth + styleModel.menuHorizontalSpacing/2.f);
         }
         
         if (type==QHNavSliderMenuTypeTitleAndImage) {
@@ -171,7 +190,6 @@
             imgInsets.left = (btn.frame.size.width - imgBounds.size.width)/2;
             titleInsets.top = btn.frame.size.height / 2 ;
             titleInsets.left =-imgBounds.size.width;
-            
             [btn setImageEdgeInsets:imgInsets];
             [btn setTitleEdgeInsets:titleInsets];
         }
@@ -181,20 +199,26 @@
     
     if (menuType==QHNavSliderMenuTypeTitleOnly) {
         
-        bottomTabLine=[[UIView alloc] initWithFrame:CGRectMake(styleModel.menuHorizontalSpacing, 0, styleModel.menuWidth, 2)];
+        bottomTabLine=[[UIView alloc] initWithFrame:CGRectMake(styleModel.menuHorizontalSpacing, 0, styleModel.menuWidth, styleModel.lineHeight>0?styleModel.lineHeight:2)];
         bottomTabLine.bottom = contentScrollView.height;
-        bottomTabLine.backgroundColor = styleModel.sliderMenuTextColorForSelect;
+        bottomTabLine.backgroundColor = styleModel.lineColor?styleModel.lineColor:styleModel.sliderMenuTextColorForSelect;
         [contentScrollView addSubview:bottomTabLine];
         
         if (styleModel.sizeToFitScreenWidth) {
             bottomTabLine.left = ((UIButton *)[contentScrollView viewWithTag:0+sliderBtnTagStartPoint]).left;
         }
+        
+        [self selectAtRow:0 andDelegate:NO];
     }
     
-    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, self.height, self.width, 0.5f)];
-    lineView.backgroundColor = lineViewColor;
-    self.clipsToBounds = NO;
-    [self addSubview:lineView];
+    if (!styleModel.hideViewBottomLineView) {
+        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, self.height, self.width, 0.5f)];
+        lineView.backgroundColor = YMSLineViewColor;
+        self.clipsToBounds = NO;
+        [self addSubview:lineView];
+        
+    }
+    
     
 }
 
@@ -203,6 +227,21 @@
 
 @implementation QHNavSliderMenuStyleModel
 
++ (instancetype)menuStyleModelForHome {
+    QHNavSliderMenuStyleModel *model       = [QHNavSliderMenuStyleModel new];
+    model.sizeToFitScreenWidth             = YES;
+    model.hideViewBottomLineView           = YES;
+    model.titleLableFont                   = defaultFont(17);
+    model.lineHeight                       = 4.f;
+    model.sliderMenuTextColorForNormal     = YMSNavTitleColor;
+    model.sliderMenuTextColorForSelect     = YMSNavTitleColor;
+    model.lineColor                        = YMSBrandColor;
+    model.autoSuitLineViewWithdForBtnTitle = YES;
+    model.sizeInMiddle                     = YES;
+    model.menuHorizontalSpacing            = 40.f;
+    
+    return model;
+}
 
 
 @end

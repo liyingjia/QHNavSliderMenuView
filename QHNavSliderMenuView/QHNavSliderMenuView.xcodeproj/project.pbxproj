@@ -22,6 +22,10 @@
 		EC5D900F1B7B375D008E2AE5 /* ws_leimu_pink@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC5D900B1B7B375D008E2AE5 /* ws_leimu_pink@2x.png */; };
 		EC5D90101B7B375D008E2AE5 /* ws_leimu_pink@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EC5D900C1B7B375D008E2AE5 /* ws_leimu_pink@3x.png */; };
 		EC5D90131B7B406D008E2AE5 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5D90121B7B406D008E2AE5 /* ContentViewController.m */; };
+		ECF3EBD11C2A7A090061D640 /* QHUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EBD01C2A7A090061D640 /* QHUtil.m */; };
+		ECF3EBD81C2A7A780061D640 /* NSString+QHNSStringCtg.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EBD31C2A7A780061D640 /* NSString+QHNSStringCtg.m */; };
+		ECF3EBD91C2A7A780061D640 /* UIButton+QHButtonCtg.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EBD51C2A7A780061D640 /* UIButton+QHButtonCtg.m */; };
+		ECF3EBDA1C2A7A780061D640 /* UILabel+QHLabelCtg.m in Sources */ = {isa = PBXBuildFile; fileRef = ECF3EBD71C2A7A780061D640 /* UILabel+QHLabelCtg.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,14 @@
 		EC5D900C1B7B375D008E2AE5 /* ws_leimu_pink@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ws_leimu_pink@3x.png"; sourceTree = "<group>"; };
 		EC5D90111B7B406D008E2AE5 /* ContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
 		EC5D90121B7B406D008E2AE5 /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
+		ECF3EBCF1C2A7A090061D640 /* QHUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QHUtil.h; sourceTree = "<group>"; };
+		ECF3EBD01C2A7A090061D640 /* QHUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QHUtil.m; sourceTree = "<group>"; };
+		ECF3EBD21C2A7A780061D640 /* NSString+QHNSStringCtg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+QHNSStringCtg.h"; sourceTree = "<group>"; };
+		ECF3EBD31C2A7A780061D640 /* NSString+QHNSStringCtg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+QHNSStringCtg.m"; sourceTree = "<group>"; };
+		ECF3EBD41C2A7A780061D640 /* UIButton+QHButtonCtg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+QHButtonCtg.h"; sourceTree = "<group>"; };
+		ECF3EBD51C2A7A780061D640 /* UIButton+QHButtonCtg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+QHButtonCtg.m"; sourceTree = "<group>"; };
+		ECF3EBD61C2A7A780061D640 /* UILabel+QHLabelCtg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+QHLabelCtg.h"; sourceTree = "<group>"; };
+		ECF3EBD71C2A7A780061D640 /* UILabel+QHLabelCtg.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+QHLabelCtg.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +172,14 @@
 			isa = PBXGroup;
 			children = (
 				EC5D8FF81B7B1D97008E2AE5 /* QHDefine.h */,
+				ECF3EBCF1C2A7A090061D640 /* QHUtil.h */,
+				ECF3EBD01C2A7A090061D640 /* QHUtil.m */,
+				ECF3EBD21C2A7A780061D640 /* NSString+QHNSStringCtg.h */,
+				ECF3EBD31C2A7A780061D640 /* NSString+QHNSStringCtg.m */,
+				ECF3EBD41C2A7A780061D640 /* UIButton+QHButtonCtg.h */,
+				ECF3EBD51C2A7A780061D640 /* UIButton+QHButtonCtg.m */,
+				ECF3EBD61C2A7A780061D640 /* UILabel+QHLabelCtg.h */,
+				ECF3EBD71C2A7A780061D640 /* UILabel+QHLabelCtg.m */,
 				EC5D8FF91B7B1D97008E2AE5 /* UIView+QHUIViewCtg.h */,
 				EC5D8FFA1B7B1D97008E2AE5 /* UIView+QHUIViewCtg.m */,
 			);
@@ -282,9 +302,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECF3EBDA1C2A7A780061D640 /* UILabel+QHLabelCtg.m in Sources */,
 				EC5D8FD41B7B1CA7008E2AE5 /* FirstViewController.m in Sources */,
+				ECF3EBD81C2A7A780061D640 /* NSString+QHNSStringCtg.m in Sources */,
 				EC5D90131B7B406D008E2AE5 /* ContentViewController.m in Sources */,
+				ECF3EBD11C2A7A090061D640 /* QHUtil.m in Sources */,
 				EC5D8FD11B7B1CA7008E2AE5 /* AppDelegate.m in Sources */,
+				ECF3EBD91C2A7A780061D640 /* UIButton+QHButtonCtg.m in Sources */,
 				EC5D8FFE1B7B1DD5008E2AE5 /* QHNavSliderMenu.m in Sources */,
 				EC4762FC1B7C3A6100087117 /* ExampleViewController.m in Sources */,
 				EC5D8FCE1B7B1CA7008E2AE5 /* main.m in Sources */,

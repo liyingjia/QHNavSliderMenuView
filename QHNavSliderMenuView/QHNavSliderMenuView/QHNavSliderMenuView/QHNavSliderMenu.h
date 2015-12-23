@@ -7,7 +7,7 @@
 //
 
 #import "UIView+QHUIViewCtg.h"
-
+#import "QHDefine.h"
 typedef NS_ENUM(NSInteger, QHNavSliderMenuType) {
     QHNavSliderMenuTypeTitleOnly = 0,
     QHNavSliderMenuTypeTitleAndImage
@@ -41,6 +41,8 @@ typedef NS_ENUM(NSInteger, QHNavSliderMenuType) {
  */
 - (void)selectAtRow:(NSInteger)row andDelegate:(BOOL)delegate;
 
+@property (nonatomic,readonly)NSInteger currentSelectIndex;
+
 @end
 
 @interface QHNavSliderMenuStyleModel : NSObject
@@ -66,6 +68,9 @@ typedef NS_ENUM(NSInteger, QHNavSliderMenuType) {
 @property (nonatomic,strong) UIColor *sliderMenuTextColorForSelect;
 /*未选中时候文字的颜色*/
 @property (nonatomic,strong) UIColor *sliderMenuTextColorForNormal;
+
+@property (nonatomic,strong)UIColor *lineColor;
+@property (nonatomic)float lineHeight;
 /*文字的font 默认是system size10*/
 @property (nonatomic,strong) UIFont  *titleLableFont;
 
@@ -76,6 +81,22 @@ typedef NS_ENUM(NSInteger, QHNavSliderMenuType) {
 
 /*适应屏幕，居中显示，只有当一个屏幕能全部显示的下的时候才有效*/
 @property (nonatomic)BOOL sizeToFitScreenWidth;
+
+//居中显示
+@property (nonatomic)BOOL sizeInMiddle;
+
+//是否根据文本的长短自动调整线条的长度
+@property (nonatomic)BOOL autoSuitLineViewWithdForBtnTitle;
+
+
+
+@property (nonatomic)BOOL donotScrollTapViewWhileScroll;
+
+@property (nonatomic)BOOL hideViewBottomLineView;
+
+
++ (instancetype)menuStyleModelForHome;
+
 
 @end
 
@@ -91,6 +112,8 @@ typedef NS_ENUM(NSInteger, QHNavSliderMenuType) {
 ///重复点击了某个按钮
 - (void)navSliderMenuDidReSelectAtRow:(NSInteger)row;
 - (void)navScrollViewDidScroll:(float)offsetX;
+
+
 
 @end
 
